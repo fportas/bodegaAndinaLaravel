@@ -45,7 +45,9 @@
       <!-- <form class="text" method="post" enctype="multipart/form-data" action="registrarUsuario.php"> -->
       <!-- <form class="text" method="post" enctype="multipart/form-data" action="perfil-de-usuario.php"> -->
       <form class="text" method="post" enctype="multipart/form-data">
-
+        {{-- xXXXXXXX   TOQUEN   XXXXXXXx --}}
+        @csrf
+        {{-- xXXXXXXX   TOQUEN   XXXXXXXx --}}
 
         <!-- Nombre  -->
         <input

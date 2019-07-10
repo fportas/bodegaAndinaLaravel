@@ -27,7 +27,7 @@
 
      <div class="preguntas-pedido ventanaProducto">
        <img src="images/mockup-botella.png" alt="Imagen de botella de vino" class="botella">
-       <h3>Vino ....</h3>
+       <h3>Vino .....</h3>
        <p>Lorem ipsum dolor sit amet, consectetur</p>
        <p class="precio">$780</p>
      </div>

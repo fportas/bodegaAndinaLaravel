@@ -52,6 +52,7 @@ class RegisterController extends Controller
         'same' => 'El campo :attribute no coincide con el primero ingresado'
         'ends_with' => 'El campo :attribute debe ser un archivo de imagen en formato jpg, jpeg o png'
         '' => 'El campo :attribute debe contener las letras DH en mayuscula'
+        '' => 'El campo :attribute debe contener las letras DH en mayuscula'
         '' => ''
       ])
     }

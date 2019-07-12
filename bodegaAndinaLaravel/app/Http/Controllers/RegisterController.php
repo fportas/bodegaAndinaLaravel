@@ -51,10 +51,13 @@ class RegisterController extends Controller
         'min:5' => 'El campo :attribute debe tener al menos 5 caracteres'
         'same' => 'El campo :attribute no coincide con el primero ingresado'
         'ends_with' => 'El campo :attribute debe ser un archivo de imagen en formato jpg, jpeg o png'
-        '' => 'El campo :attribute debe contener las letras DH en mayuscula'
-        '' => 'El campo :attribute debe contener las letras DH en mayuscula'
-        '' => ''
+
       ])
+
+
+      $user = new User;
+
+      
     }
 
     /**

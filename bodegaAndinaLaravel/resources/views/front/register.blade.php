@@ -8,6 +8,8 @@
 
   <link rel="stylesheet" href="/css/styles.css">
 
+  <link rel="stylesheet" href="/css/register.css">
+
 @endsection
 
 
@@ -51,14 +53,14 @@
 
         <!-- Nombre  -->
         <input
-          class="login" <?= isset($errorsInRegister["name"]) ? "showError" : null ?>
+          class="login"
           type="text"
           name="name"
-          value="<?= $name; ?>"
+          value=""
           placeholder="Nombre completo"
         >
         <div class="showError">
-          <?= isset($errorsInRegister["name"]) ? $errorsInRegister["name"] : null; ?>
+
         </div>
 
         <!-- Usuario -->
@@ -66,11 +68,11 @@
           class="login"
           type="text"
           name="user"
-          value="<?= $user; ?>"
+          value=""
           placeholder="Nombre de usuario"
         >
         <div class="showError">
-          <?= isset($errorsInRegister['user']) ? $errorsInRegister['user'] : null; ?>
+
         </div>
 
         <!-- País -->
@@ -79,17 +81,14 @@
           class="login" <?= isset($errorsInRegister['country']) ? 'showError' : null; ?>
         >
           <option value="">Elegí tu país de nacimiento</option>
-          <?php foreach ($countries as $code => $country): ?>
-            <option
-              value="<?= $code ?>"
-              <?= $code == $countryFromPost ? 'selected' : null; ?>
-            >
-              <?= $country ?>
+
+            <option>
+
             </option>
-          <?php endforeach; ?>
+
         </select>
         <div class="showError">
-          <?= isset($errorsInRegister['country']) ? $errorsInRegister['country'] : null; ?>
+
         </div>
 
 
@@ -98,11 +97,11 @@
           class="login"
           type="text"
           name="email"
-          value="<?= $email; ?>"
+          value=""
           placeholder="Correo electronico"
         >
         <div class="showError">
-          <?= isset($errorsInRegister['email']) ? $errorsInRegister['email'] : null; ?>
+
         </div>
 
         <!-- Check box de Es mayor -->
@@ -118,7 +117,7 @@
         </label>
         </div>
         <div class="showError">
-          <?= isset($errorsInRegister['older']) ? $errorsInRegister['older'] : null; ?>
+
         </div>
 
         <!-- elegir imagen de perfil  -->
@@ -131,35 +130,35 @@
           placeholder="Seleccione una imagen de prefil"
         >
         <div class="showError">
-          <?= isset($errorsInRegister["avatar"]) ? $errorsInRegister['avatar'] : null; ?>
+
         </div>
 
 
 
         <!-- password -->
         <input
-          class="login" <?= isset($errorsInRegister["password"]) ? "showError" : null ?>
+          class="login"
           type="password"
           name="password"
-          value="<?= $password; ?>"
+          value=""
           placeholder="Contraseña"
         >
         <div class="showError">
-          <?= isset($errorsInRegister["password"]) ? $errorsInRegister["password"] : null; ?>
+
         </div>
 
 
         <!-- confirmar password -->
 
         <input
-          class="login" <?= isset($errorsInRegister["rePassword"]) ? "showError" : null ?>
+          class="login"
           type="password"
           name="rePassword"
-          value="<?= $rePassword; ?>"
+          value=""
           placeholder="Confirme su contraseña"
         >
         <div class="showError">
-          <?= isset($errorsInRegister["rePassword"]) ? $errorsInRegister["rePassword"] : null; ?>
+
         </div>
 
 

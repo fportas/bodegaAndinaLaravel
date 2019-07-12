@@ -55,9 +55,32 @@ class RegisterController extends Controller
       ])
 
 
-      $user = new User;
+      $viner = new User;
 
-      
+      $viner->name = $request->input('name');
+      $viner->surname = $request->input('surname');
+      $viner->user = $request->input('user');
+      $viner->country = $request->input('country');
+      $viner->email = $request->input('email');
+      $viner->older = $request->input('older');
+      $viner->password = $request->input('password');
+
+      $avatar = $request->files();
+
+      if ($avatar) {
+        $finalAvatar = uniqid("img_") . "." . $avatar->extension();
+
+        $avatar->storePubliclyAs("public/avatars", $finalAvatar);
+
+        $viner->avatar = $finalAvatar;
+
+      }
+
+      $viner->save();
+
+      return redirect('/perfil_usuario');
+
+
     }
 
     /**

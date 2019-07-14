@@ -31,3 +31,9 @@ Route::get('/productos', function () {
 Route::get('/registrarme', function () {
   return view('front.register');
 });
+
+// ruta a perfil de usuario
+// Cambiar a post
+Route::get('/perfil-de-usuario', function () {
+  return view('front.perfil-de-usuario');
+});

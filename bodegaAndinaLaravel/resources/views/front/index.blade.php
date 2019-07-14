@@ -18,13 +18,13 @@
 
 @section('navbar')
   <header class="main-header">
+
     <div class="logoEnCel">
       <img src="images/logo-secundario.png" alt="logo andina">
     </div>
+
     <div class="cualquiernombre">
-
       @include('front.navbar')
-
     </div>
 
 
@@ -45,13 +45,11 @@
   <!-- Que hacemos  -->
 
   <section class="queHacemos">
-
     <p>
       <strong>Andina</strong> es una bodega Argentina
       dedicada a la producción y comercialización de
       vinos de alta calidad
     </p>
-
   </section>
 
 

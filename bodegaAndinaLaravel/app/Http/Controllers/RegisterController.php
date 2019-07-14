@@ -78,7 +78,7 @@ class RegisterController extends Controller
 
       $viner->save();
 
-      return redirect('/perfil_usuario');
+      return redirect('/perfil-de-usuario');
 
 
     }

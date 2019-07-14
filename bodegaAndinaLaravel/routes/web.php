@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 // Rutas de front
 
 // ruta al index
@@ -23,9 +19,7 @@ Route::get('/home', function () {
 });
 
 // ruta a productos
-Route::get('/productos', function () {
-  return view('front.products');
-});
+Route::get('/productos', 'ProductosController@index');
 
 // ruta a registración
 Route::get('/registrarme', function () {

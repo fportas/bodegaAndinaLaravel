@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 12-07-2019 a las 23:58:25
+-- Tiempo de generación: 14-07-2019 a las 23:16:56
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.3
 
@@ -27,6 +27,24 @@ USE `bAndinaLaravel`;
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `products`
+--
+
+DROP TABLE IF EXISTS `products`;
+CREATE TABLE `products` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `prod_name` int(10) UNSIGNED NOT NULL,
+  `spec` varchar(200) COLLATE utf8_bin DEFAULT NULL,
+  `price` int(10) UNSIGNED DEFAULT NULL,
+  `prod_code` int(10) UNSIGNED DEFAULT NULL,
+  `pic` varchar(100) COLLATE utf8_bin DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `records`
 --
 
@@ -37,34 +55,41 @@ CREATE TABLE `records` (
   `update_at` datetime DEFAULT NULL,
   `name` varchar(1000) COLLATE utf8_bin DEFAULT NULL,
   `surname` varchar(1000) COLLATE utf8_bin DEFAULT NULL,
-  `user` varchar(1000) COLLATE utf8_bin NOT NULL,
+  `user` varchar(100) COLLATE utf8_bin NOT NULL,
   `country` varchar(5) COLLATE utf8_bin DEFAULT NULL,
-  `email` varchar(1000) COLLATE utf8_bin NOT NULL,
+  `email` varchar(200) COLLATE utf8_bin NOT NULL,
   `older` int(1) DEFAULT NULL,
   `avatar` varchar(200) COLLATE utf8_bin DEFAULT NULL,
   `password` varchar(200) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Volcado de datos para la tabla `records`
---
-
-INSERT INTO `records` (`id`, `created_at`, `update_at`, `name`, `surname`, `user`, `country`, `email`, `older`, `avatar`, `password`) VALUES
-(1, NULL, NULL, 'prueba', 'prueba', 'preuba', 'ar', 'prueba@mail.com', 1, NULL, 'prueba');
-
---
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `records`
 --
 ALTER TABLE `records`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `user` (`user`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `products`
+--
+ALTER TABLE `products`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `records`

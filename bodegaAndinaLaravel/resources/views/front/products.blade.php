@@ -23,6 +23,14 @@
   <div class="container-productos">
     <div class="preguntas-body">
 
+      <ul>
+        @foreach ($products as $product)
+          <li>
+            <h3>{{ $product->prod_name }}</h3>
+          </li>
+        @endforeach
+      </ul>
+
 
 
      <div class="preguntas-pedido ventanaProducto">
@@ -32,59 +40,9 @@
        <p class="precio">$780</p>
      </div>
 
-     <div class="preguntas-pedido ventanaProducto">
-       <img src="images/mockup-botella.png" alt="Imagen de botella de vino" class="botella">
-       <h3>Vino ....</h3>
-       <p>Lorem ipsum dolor sit amet, consectetur</p>
-       <p class="precio">$630</p>
-     </div>
-
-     <div class="preguntas-pedido ventanaProducto">
-       <img src="images/mockup-botella.png" alt="Imagen de botella de vino" class="botella">
-       <h3>Vino ....</h3>
-       <p>Lorem ipsum dolor sit amet, consectetur</p>
-       <p class="precio">$723</p>
-     </div>
-
-     <div class="preguntas-pedido ventanaProducto">
-       <img src="images/mockup-botella.png" alt="Imagen de botella de vino" class="botella">
-       <h3>Vino ....</h3>
-       <p>Lorem ipsum dolor sit amet, consectetur</p>
-       <p class="precio">$723</p>
-     </div>
 
 
     </div>
-
-    <div class="preguntas-body2">
-      <div class="preguntas-pedido ventanaProducto">
-        <img src="images/mockup-botella.png" alt="Imagen de botella de vino" class="botella">
-        <h3>Vino ....</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur</p>
-        <p class="precio">$540</p>
-      </div>
-
-      <div class="preguntas-pedido ventanaProducto">
-        <img src="images/mockup-botella.png" alt="Imagen de botella de vino" class="botella">
-        <h3>Vino ....</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur</p>
-        <p class="precio">$230</p>
-      </div>
-
-      <div class="preguntas-pedido ventanaProducto">
-        <img src="images/mockup-botella.png" alt="Imagen de botella de vino" class="botella">
-        <h3>Vino ....</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur</p>
-        <p class="precio">$180</p>
-      </div>
-
-      <div class="preguntas-pedido ventanaProducto">
-        <img src="images/mockup-botella.png" alt="Imagen de botella de vino" class="botella">
-        <h3>Vino ....</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur</p>
-        <p class="precio">$180</p>
-      </div>
-    </div> <!-- cierro preguntas body -->
 
   </div>
 

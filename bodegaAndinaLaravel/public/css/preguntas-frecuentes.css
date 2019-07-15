@@ -124,6 +124,8 @@ img{
     border-radius: 1%;
   }
 
+}
+
 @media (min-width: 900px){
   .preguntas{
     position: relative;
@@ -178,6 +180,8 @@ img{
 		margin-right: 5%;
     display: flex;
   }
+
+  /* hay que definir un ancho del cuadro de producto y pponerle flex-wrap: wrap; */
 
   .titulo-productos{
     margin: 5%;

@@ -19,7 +19,8 @@ Route::get('/home', function () {
 });
 
 // ruta a productos
-Route::get('/productos', 'ProductosController@index');
+Route::get('/productos/', 'ProductosController@index');
+// porque tiene dos barras el producto?
 
 // ruta a registración
 Route::get('/registrarme', function () {

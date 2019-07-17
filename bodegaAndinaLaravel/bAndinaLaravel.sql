@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 14-07-2019 a las 23:16:56
+-- Tiempo de generación: 15-07-2019 a las 23:53:46
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.3
 
@@ -33,7 +33,8 @@ USE `bAndinaLaravel`;
 DROP TABLE IF EXISTS `products`;
 CREATE TABLE `products` (
   `id` int(10) UNSIGNED NOT NULL,
-  `prod_name` int(10) UNSIGNED NOT NULL,
+  `varietal` varchar(50) COLLATE utf8_bin DEFAULT NULL,
+  `prod_name` varchar(50) COLLATE utf8_bin NOT NULL,
   `spec` varchar(200) COLLATE utf8_bin DEFAULT NULL,
   `price` int(10) UNSIGNED DEFAULT NULL,
   `prod_code` int(10) UNSIGNED DEFAULT NULL,
@@ -41,6 +42,16 @@ CREATE TABLE `products` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Volcado de datos para la tabla `products`
+--
+
+INSERT INTO `products` (`id`, `varietal`, `prod_name`, `spec`, `price`, `prod_code`, `pic`, `created_at`, `updated_at`) VALUES
+(2, 'malbec', 'Malbec Andina Arduino', 'Las uvas tienden a tener un color oscuro y abundantes taninos, y se hicieron conocidas por ser una de seis uvas permitidas en las mezclas del vino de Burdeos.', 360, 11, NULL, '2019-07-14 22:00:48', '2019-07-14 22:00:48'),
+(3, 'Cabernet Sauvignon', 'Andina Terrazas ', 'La cabernet sauvignon es una de las uvas tintas más conocidas del mundo. Crece en casi todas las grandes zonas vitícolas, en un diverso espectro de climas, desde el valle del Okanagan al valle de la B', 670, 89, '/images/mockup-botella.png', '2019-07-14 22:02:29', '2019-07-14 22:02:29'),
+(4, 'merlot', 'condor merlot', 'Merlot pertenece a la misma familia que los \"cabernet\". El vino merlot se caracteriza por su finura y suavidad, sin dejar de ser aromático y carnoso. Es de color rubí muy intenso, de graduación median', 546, 45, NULL, '2019-07-14 22:14:26', '2019-07-14 22:14:26'),
+(5, 'Cabernet Franc', 'nieve', 'La cabernet franc es una de las uvas tintas más plantadas en el mundo. Se usa, sobre todo, para mezclarse con la cabernet sauvignon y la merlot en el vino de Burdeos', 342, 65, NULL, '2019-07-14 22:16:31', '2019-07-14 22:16:31');
 
 -- --------------------------------------------------------
 
@@ -89,7 +100,7 @@ ALTER TABLE `records`
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `records`

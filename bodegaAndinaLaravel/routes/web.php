@@ -14,7 +14,7 @@
 // Rutas de front
 
 // ruta al index
-Route::get('/home', function () {
+Route::get('/index', function () {
   return view('front.index');
 });
 
@@ -32,3 +32,7 @@ Route::get('/registrarme', function () {
 Route::get('/perfil-de-usuario', function () {
   return view('front.perfil-de-usuario');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

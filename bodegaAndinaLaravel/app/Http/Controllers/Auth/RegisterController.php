@@ -50,8 +50,22 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
+            'user' => ['required', 'string', 'max:255', 'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'country' => ['required', 'string', 'max:255'],
+            'older' => ['required', 'boolean'],
+            'avatar' => ['required', 'image'],
+            'password' => ['required', 'string', 'min:5', 'confirmed', 'regex:/DH/'],
+        ], [
+          'required' => 'El campo :attribute no puede quedar vacío',
+          'unique' => 'El campo :attribute debe ser modificado',
+          'min:5' => 'El campo :attribute debe tener al menos 5 caracteres',
+          'max:255' => 'El campo :attribute puede tener un máximo de 255 caracteres',
+          'string' => 'El campo :attribute debe ser texto',
+          'email' => 'Los datos ingresados en el campo :attribute no corresponden a un correo electrónico',
+          'image' => 'El archivo que intenta en el campo :attribute enviar no es tiene un formato de imagen válido',
+          'password.regex' => 'La contraseña debe contener las letras DH en mayusculas y continuadas'
+
         ]);
     }
 
@@ -63,9 +77,21 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+      $request = request();
+
+      $profileImage = $request->file('avatar');
+
+			$profileImageName = uniqid('img-') . '.' . $profileImage->extension();
+
+			$profileImage->storePubliclyAs("public/avatars", $profileImageName);
+
         return User::create([
             'name' => $data['name'],
+            'user' => $data['user'],
             'email' => $data['email'],
+            'country' => $data['country'],
+            'older' => $data['older'],
+            'avatar' => $profileImageName,
             'password' => Hash::make($data['password']),
         ]);
     }

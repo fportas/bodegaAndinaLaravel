@@ -52,7 +52,7 @@
           <h3>{{ $product->prod_name }}</h3>
           <p>{{ $product->varietal }}</p>
           <p>{{ $product->spec }}</p>
-          <p class="precio">${{ $product->price }}</p>
+          <p class="precio">$ {{ $product->price }}</p>
         </div>
       @endforeach
 

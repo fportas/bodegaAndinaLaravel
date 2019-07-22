@@ -9,7 +9,9 @@
 
   <link rel="stylesheet" href="/css/styles.css">
 
-  <link rel="stylesheet" href="/css/preguntas-frecuentes.css">
+  <link rel="stylesheet" href="/css/register.css">
+
+
 
 @endsection
 
@@ -24,14 +26,15 @@
       <div class="row justify-content-center">
           <div class="col-md-8">
               <div class="card">
-                  <div class="card-header">{{ __('Register') }}</div>
+                  {{-- <div class="card-header">{{ __('Register') }}</div> --}}
 
                   <div class="card-body">
-                      <form method="POST" action="{{ route('register') }}">
+                      <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                           @csrf
 
+                          {{-- Nombre --}}
                           <div class="form-group row">
-                              <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                              <label for="name" class="col-md-4 col-form-label text-md-right">Nombre</label>
 
                               <div class="col-md-6">
                                   <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -44,8 +47,40 @@
                               </div>
                           </div>
 
+
+                          {{-- Usuario --}}
                           <div class="form-group row">
-                              <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                              <label for="user" class="col-md-4 col-form-label text-md-right">{{ __('Usuario') }}</label>
+
+                              <div class="col-md-6">
+                                  <input id="name" type="text" class="form-control @error('user') is-invalid @enderror" name="user" value="{{ old('user') }}" required autocomplete="user" autofocus>
+
+                                  @error('user')
+                                      <span class="invalid-feedback" role="alert">
+                                          <strong>{{ $message }}</strong>
+                                      </span>
+                                  @enderror
+                              </div>
+                          </div>
+
+                          {{-- País --}}
+                          <div class="form-group row">
+                              <label for="country" class="col-md-4 col-form-label text-md-right">{{ __('País') }}</label>
+
+                              <div class="col-md-6">
+                                  <input id="name" type="text" class="form-control @error('country') is-invalid @enderror" name="country" value="{{ old('country') }}" required autocomplete="country" autofocus>
+
+                                  @error('country')
+                                      <span class="invalid-feedback" role="alert">
+                                          <strong>{{ $message }}</strong>
+                                      </span>
+                                  @enderror
+                              </div>
+                          </div>
+
+                          {{-- E-Mail --}}
+                          <div class="form-group row">
+                              <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail') }}</label>
 
                               <div class="col-md-6">
                                   <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -58,6 +93,22 @@
                               </div>
                           </div>
 
+                          {{-- Imagen --}}
+                          <div class="form-group row">
+                              <label for="avatar" class="col-md-4 col-form-label text-md-right">Imágen</label>
+
+                              <div class="col-md-6">
+                                  <input id="avatar" type="file" class="form-control @error('avatar') is-invalid @enderror" name="avatar" value="{{ old('avatar') }}" autocomplete="avatar">
+
+                                  @error('avatar')
+                                      <span class="invalid-feedback" role="alert">
+                                          <strong>{{ $message }}</strong>
+                                      </span>
+                                  @enderror
+                              </div>
+                          </div>
+
+                          {{-- Password --}}
                           <div class="form-group row">
                               <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
@@ -72,6 +123,7 @@
                               </div>
                           </div>
 
+                          {{-- Repassword --}}
                           <div class="form-group row">
                               <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
@@ -83,7 +135,7 @@
                           <div class="form-group row mb-0">
                               <div class="col-md-6 offset-md-4">
                                   <button type="submit" class="btn btn-primary">
-                                      {{ __('Register') }}
+                                      {{ __('Registrarme') }}
                                   </button>
                               </div>
                           </div>
@@ -101,7 +153,7 @@
 
 
 
-@section('content')
+{{-- @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -175,4 +227,4 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection --}}

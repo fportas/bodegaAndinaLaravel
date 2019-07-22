@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/profile';
 
     /**
      * Create a new controller instance.
@@ -50,10 +50,9 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'user' => ['required', 'string', 'max:255', 'unique:users'],
+            // 'user' => ['required', 'string', 'max:255', 'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'country' => ['required', 'string', 'max:255'],
-            'older' => ['required', 'boolean'],
             'avatar' => ['required', 'image'],
             'password' => ['required', 'string', 'min:5', 'confirmed', 'regex:/DH/'],
         ], [
@@ -63,7 +62,7 @@ class RegisterController extends Controller
           'max:255' => 'El campo :attribute puede tener un máximo de 255 caracteres',
           'string' => 'El campo :attribute debe ser texto',
           'email' => 'Los datos ingresados en el campo :attribute no corresponden a un correo electrónico',
-          'image' => 'El archivo que intenta en el campo :attribute enviar no es tiene un formato de imagen válido',
+          'image' => 'El archivo que intenta subir no es tiene un formato de imagen válido',
           'password.regex' => 'La contraseña debe contener las letras DH en mayusculas y continuadas'
 
         ]);
@@ -87,12 +86,13 @@ class RegisterController extends Controller
 
         return User::create([
             'name' => $data['name'],
-            'user' => $data['user'],
+            // 'user' => $data['user'],
             'email' => $data['email'],
             'country' => $data['country'],
-            'older' => $data['older'],
+            // 'older' => $data['older'],
             'avatar' => $profileImageName,
-            'password' => Hash::make($data['password']),
+            'password' => Hash::make($data['password'])
         ]);
     }
+
 }

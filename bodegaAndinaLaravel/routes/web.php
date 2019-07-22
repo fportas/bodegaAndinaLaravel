@@ -35,4 +35,13 @@ Route::get('/perfil-de-usuario', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')/*->name('home')*/;
+
+// Route::get('/profile', function () {
+// 	if (Auth::user()) {
+// 		echo "Hola " . Auth::user()->name . "<br>";
+// 		echo "<img src='/storage/avatars/" . Auth::user()->avatar . "' width='100' /><br>";
+// 	} else {
+// 		return redirect('/register');
+// 	}
+// })->name('profile');

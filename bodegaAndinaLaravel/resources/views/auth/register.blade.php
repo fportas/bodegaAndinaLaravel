@@ -97,15 +97,15 @@
                           <div class="form-group row">
                               <label for="avatar" class="col-md-4 col-form-label text-md-right">Imágen</label>
 
-                              <div class="col-md-6">
-                                  <input id="avatar" type="file" class="form-control @error('avatar') is-invalid @enderror" name="avatar" value="{{ old('avatar') }}" autocomplete="avatar">
+                              <input id="avatar" type="file" class="col-md-6 @error('avatar') is-invalid @enderror" name="avatar" value="{{ old('avatar') }}" autocomplete="avatar">
 
-                                  @error('avatar')
-                                      <span class="invalid-feedback" role="alert">
-                                          <strong>{{ $message }}</strong>
-                                      </span>
-                                  @enderror
-                              </div>
+                                @error('avatar')
+                                  <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                  </span>
+                                @enderror
+                              {{-- <div class="col-md-6">
+                              </div> --}}
                           </div>
 
                           {{-- Password --}}

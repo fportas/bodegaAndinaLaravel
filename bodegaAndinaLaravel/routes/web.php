@@ -14,7 +14,7 @@
 // Rutas de front
 
 // ruta al index
-Route::get('/index', function () {
+Route::get('/', function () {
   return view('front.index');
 });
 

@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/profile';
+    protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -80,19 +80,30 @@ class RegisterController extends Controller
 
       $profileImage = $request->file('avatar');
 
-			$profileImageName = uniqid('img-') . '.' . $profileImage->extension();
+      $profileImageName = uniqid('img-') . '.' . $profileImage->extension();
 
 			$profileImage->storePubliclyAs("public/avatars", $profileImageName);
 
+      // dd($profileImageName);
         return User::create([
             'name' => $data['name'],
-            // 'user' => $data['user'],
+            'user' => $data['user'],
             'email' => $data['email'],
             'country' => $data['country'],
             // 'older' => $data['older'],
             'avatar' => $profileImageName,
             'password' => Hash::make($data['password'])
         ]);
+       // $user = User::create([
+       //      'name' => $data['name'],
+       //      // 'user' => $data['user'],
+       //      'email' => $data['email'],
+       //      'country' => $data['country'],
+       //      // 'older' => $data['older'],
+       //      'avatar' => $profileImageName,
+       //      'password' => Hash::make($data['password'])
+       //  ]);
+       //  // dd($user);
     }
 
 }

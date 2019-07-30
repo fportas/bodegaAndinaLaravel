@@ -75,6 +75,9 @@
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}">Register</a>
                         @endif
+                        {{-- @if (Auth)
+                          Este es para ver si es admin o usuario cliente
+                        @endif --}}
                     @endauth
                 </div>
             @endif

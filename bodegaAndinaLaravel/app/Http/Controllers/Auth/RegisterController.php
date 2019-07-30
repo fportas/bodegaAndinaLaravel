@@ -83,7 +83,7 @@ class RegisterController extends Controller
       $profileImageName = uniqid('img-') . '.' . $profileImage->extension();
 
 			$profileImage->storePubliclyAs("public/avatars", $profileImageName);
-
+      
       // dd($profileImageName);
         return User::create([
             'name' => $data['name'],

@@ -14,24 +14,27 @@
 // Rutas de front
 
 // ruta al index
-Route::get('/', function () {
+Route::get('/index', function () {
   return view('front.index');
 });
 
 // ruta a productos
 Route::get('/productos/', 'ProductosController@index');
-// porque tiene dos barras el producto?
+// Hay que hacerla nueva con la nueva lista de preductos.
 
 // ruta a registración
 Route::get('/registrarme', function () {
   return view('front.register');
 });
+// ahora funcionan el register de laravel directamente
 
 // ruta a perfil de usuario
 // Cambiar a post
 Route::get('/perfil-de-usuario', function () {
   return view('front.perfil-de-usuario');
 });
+
+
 
 Auth::routes();
 

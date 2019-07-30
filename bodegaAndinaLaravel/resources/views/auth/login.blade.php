@@ -1,6 +1,25 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app') --}}
+@extends('front.template')
 
-@section('content')
+@section('pageTitle', 'Iniciar seción')
+
+@section('link_style')
+
+  <link rel="stylesheet" href="/css/app.css">
+
+  <link rel="stylesheet" href="/css/styles.css">
+
+  {{-- <link rel="stylesheet" href="/css/register.css"> --}}
+
+@endsection
+
+@section('navbar')
+  <div class="cualquiernombre">
+    @include('front.navbar')
+  </div>
+@endsection
+
+@section('secondContent')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -12,7 +31,7 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">E-Mail</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -26,7 +45,21 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                            <label for="user" class="col-md-4 col-form-label text-md-right">Usuario</label>
+
+                            <div class="col-md-6">
+                                <input id="user" type="text" class="form-control @error('user') is-invalid @enderror" name="user" value="{{ old('user') }}" required autocomplete="user" autofocus>
+
+                                @error('user')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">Contraseña</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
@@ -45,7 +78,7 @@
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
+                                        Recordarme
                                     </label>
                                 </div>
                             </div>
@@ -54,16 +87,26 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
+                                    Ingresar
                                 </button>
 
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
+                                        No recuerdo mi contraseña
                                     </a>
                                 @endif
                             </div>
                         </div>
+
+                        <div class="form-group row mb-0">
+                          <div class="col-md-8 offset-md-4">
+                            <a class="btn btn-primary" href="/register">
+                              Registrarme
+                            </a>
+                          </div>
+                        </div>
+
+
                     </form>
                 </div>
             </div>

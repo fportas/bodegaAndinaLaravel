@@ -79,6 +79,21 @@
                               </div>
                           </div>
 
+                          {{-- Provincia --}}
+                          <div class="form-group row">
+                              <label for="city" class="col-md-4 col-form-label text-md-right">{{ __('Provincia') }}</label>
+
+                              <div class="col-md-6">
+                                  <input id="name" type="text" class="form-control @error('city') is-invalid @enderror" name="city" value="{{ old('city') }}" required autocomplete="city" autofocus>
+
+                                  @error('city')
+                                      <span class="invalid-feedback" role="alert">
+                                          <strong>{{ $message }}</strong>
+                                      </span>
+                                  @enderror
+                              </div>
+                          </div>
+
                           {{-- E-Mail --}}
                           <div class="form-group row">
                               <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail') }}</label>

@@ -50,6 +50,14 @@
       dedicada a la producción y comercialización de
       vinos de alta calidad
     </p>
+
+    @auth
+    {{  Auth::user()->name  }}
+    <form  action="/logout" method="post">
+      @csrf
+      <button type="submit" name="button">Logout</button>
+    </form>
+  @endauth
   </section>
 
 

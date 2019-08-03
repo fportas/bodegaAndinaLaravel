@@ -9,7 +9,7 @@
   {{-- <div class="boton"><a href="contacto.php">Contacto</a></div> --}}
   <div class="boton"><a href="preguntas-frecuentes.php">Preguntas</a></div>
   <div class="boton"><a href="/login"><strong>Clientes</strong></a></div>
-  {{-- <div class="boton"><a href="login.php"><img src="images/icons/icon-logout.png" alt="" style="max-width: 10px;"></a></div> --}}
+  {{-- <div class="boton"><a href="/index">Cerrar sesión</a></div> --}}
 
 
 </nav>

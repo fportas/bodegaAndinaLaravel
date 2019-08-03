@@ -16,9 +16,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'country', 'avatar', 'user'
+        'name', 'email', 'password', 'country', 'city', 'avatar', 'user', /*'bill'*/
       ];
-    // public $timestamps = false;
+    // public $timestamps = false; Esto es para que el table.timestamp sea nullable
     /**
      * The attributes that should be hidden for arrays.
      *

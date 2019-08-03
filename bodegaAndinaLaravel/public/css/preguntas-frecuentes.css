@@ -179,6 +179,8 @@ img{
 		margin-left: 5%;
 		margin-right: 5%;
     display: flex;
+    flex-wrap: wrap;
+    width: 100%;
   }
 
   /* hay que definir un ancho del cuadro de producto y pponerle flex-wrap: wrap; */
@@ -218,6 +220,7 @@ img{
   .ventanaProducto{
     text-align: center;
     align-items: center;
+    width: 45%;
   }
 
 }

@@ -50,9 +50,10 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            // 'user' => ['required', 'string', 'max:255', 'unique:users'],
+            'user' => ['required', 'string', 'max:255', 'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'country' => ['required', 'string', 'max:255'],
+            'country' => ['required'],
+            'city' => ['nullable'],
             'avatar' => ['required', 'image'],
             'password' => ['required', 'string', 'min:5', 'confirmed', 'regex:/DH/'],
         ], [
@@ -83,13 +84,14 @@ class RegisterController extends Controller
       $profileImageName = uniqid('img-') . '.' . $profileImage->extension();
 
 			$profileImage->storePubliclyAs("public/avatars", $profileImageName);
-      
+
       // dd($profileImageName);
         return User::create([
             'name' => $data['name'],
             'user' => $data['user'],
             'email' => $data['email'],
             'country' => $data['country'],
+            'city' => $data['city'],
             // 'older' => $data['older'],
             'avatar' => $profileImageName,
             'password' => Hash::make($data['password'])

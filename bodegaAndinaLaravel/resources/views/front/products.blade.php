@@ -8,7 +8,12 @@
 
   <link rel="stylesheet" href="/css/styles.css">
 
-  <link rel="stylesheet" href="/css/preguntas-frecuentes.css">
+    <link rel="stylesheet" href="/css/preguntas-frecuentes.css">
+
+    <link rel="stylesheet" href="/css/products.css">
+
+  {{-- <meta name="viewport" content="width=device-width, initial-scale=1"> --}}
+
 
 @endsection
 
@@ -19,56 +24,65 @@
 @endsection
 
 
-@section('mainContent')
+@section('header')
   <div class="titulo-productos">
+
     <h2>Nuestros Productos</h2>
+
   </div>
 @endsection
 
+@section('mainContent')
+    <div class="container-productos">
+    <!-- Sidebar -->
+    <div class="categoriasProductos">
+      <h3>Categorías</h3>
+
+      <h3>Varietales</h3>
+
+      <ul>
+        <li><a href="#"> Cabernet Sauvignon</a></li>
+        <li><a href="#"> Malbec</a></li>
+        <li><a href="#"> Merlot</a></li>
+      </ul>
+
+      <h3>Precios</h3>
+
+      <ul>
+        <li><a href="#"> Menor precio </a></li>
+        <li><a href="#"> Mayor precio </a></li>
+        <li><a href="#"> Promociones </a></li>
+      </ul>
+
+      </div>
+    <!-- /#sidebar-wrapper -->
+@endsection
+
 @section('secondContent')
-  <div class="container-productos">
+
+  {{-- <div class="container-productos"> --}}
     <div class="preguntas-body">
 
-      {{-- <ul>
-        @foreach ($products as $product)
-          <li>
-            <h3>{{ $product->prod_name }}</h3>
-          </li>
-          <li>
-            <h3>{{ $product->varietal }}</h3>
-          </li>
-          <li>
-            <p>{{ $product->spec }}</p>
-          </li>
-          <li>
-            <p>${{ $product->price }}</p>
-          </li>
-        @endforeach
-      </ul> --}}
 
       @foreach ($products as $product)
         <div class="preguntas-pedido ventanaProducto">
-          <img src="{{ $product->pic }}" class="botella">
-          <h3>{{ $product->prod_name }}</h3>
-          <p>{{ $product->varietal }}</p>
+          <img src="{{ $product->image }}" class="botella">
+          <h3>{{ $product->name }}</h3>
+          <p>{{ $product->varietal->name }}</p>
           <p>{{ $product->spec }}</p>
-          <p class="precio">$ {{ $product->price }}</p>
+          <strong><p class="precio">$ {{ $product->price }}</p></strong>
+          <button type="button" name="button" class="comprar">Comprar</button>
         </div>
       @endforeach
 
 
 
-     {{-- <div class="preguntas-pedido ventanaProducto">
-       <img src="/images/mockup-botella.png" alt="Imagen de botella de vino" class="botella">
-       <h3>Vino .....</h3>
-       <p>Lorem ipsum dolor sit amet, consectetur</p>
-       <p class="precio">$780</p>
-     </div> --}}
-
 
 
     </div>
 
+  {{-- </div> --}}
   </div>
+
 
 @endsection

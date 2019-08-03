@@ -16,10 +16,9 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name', 50); // varchar(100)
+            $table->string('spec', 150); // varchar(100)
             $table->decimal('price', 6, 2); // 9.999.99
             $table->string('image', 100); // varchar(100)
-            $table->unsignedBigInteger('varietal_id')->nullable();
-            $table->foreign('varietal_id')->references('id')->on('varietal');
             $table->timestamps();
         });
     }

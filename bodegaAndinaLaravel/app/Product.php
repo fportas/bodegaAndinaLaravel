@@ -6,12 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-  protected $fillable = ['varietal', 'prod_name', 'spec', 'price', 'prod_code', 'pic'];
+  protected $fillable = ['name', 'spec', 'price', 'varietal_id', 'image'];
+
+  protected $dates = ['release_date'];
 
   protected $datos = ['id'];
 
   public function varietal()
 	{
-		return $this->belongsTo("App\Varietal", "varietal_id");
+		return $this->belongsTo(Varietal::class, 'varietal_id', 'id');
 	}
 }

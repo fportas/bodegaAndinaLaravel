@@ -20,7 +20,17 @@ Route::get('/index', function () {
 
 // ruta a productos
 Route::get('/productos/', 'ProductosController@index');
-// Hay que hacerla nueva con la nueva lista de preductos.
+
+Route::get('/prodmalbec/', 'ProductosController@varietalMalbec');
+// seguir trabajando
+
+// ruta a index de admin
+Route::get('/admin', 'AdminController@index');
+
+Route::post('/admin', 'AdminController@store');
+// ruta a crear vino
+Route::get('/create', 'AdminController@create');
+
 
 // ruta a registración
 Route::get('/registrarme', function () {

@@ -42,7 +42,7 @@
 
       <ul>
         <li><a href="#"> Cabernet Sauvignon</a></li>
-        <li><a href="/prodmalbec"> Malbec</a></li>
+        <li><a href="#"> Malbec</a></li>
         <li><a href="#"> Merlot</a></li>
       </ul>
 
@@ -64,7 +64,7 @@
     <div class="preguntas-body">
 
 
-      @foreach ($products as $product)
+      @foreach ($varietals[2]->product as $product)
         <div class="preguntas-pedido ventanaProducto">
           <img src="{{ $product->image }}" class="botella">
           <h3>{{ $product->name }}</h3>

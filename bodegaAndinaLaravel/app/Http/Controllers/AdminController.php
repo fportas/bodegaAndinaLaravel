@@ -42,10 +42,9 @@ class AdminController extends Controller
     public function store(Request $request)
     {
       $request->validate([
-  			// input_name => rules,
   			'name' => 'required | max:50',
   			'spec' => 'required | max:500',
-  			'precie' => 'required | numeric',
+  			'price' => 'required | numeric',
   			'varietal_id' => 'required',
   			'image' => 'required | image'
   		], [
@@ -60,7 +59,7 @@ class AdminController extends Controller
 
       $product->name = $request->input('name');
       $product->spec = $request->input('spec');
-      $product->precie = $request->input('precie');
+      $product->price = $request->input('price');
       $product->varietal_id = $request->input('varietal_id');
 
       // Obtengo el archivo que viene en el formulario (Objeto de Laravel) que tiene a su vez el archivo de la imagen
@@ -68,10 +67,10 @@ class AdminController extends Controller
 
       if ($image) {
         // Armo un nombre único para este archivo
-        $imagenFinal = uniqid("win_") . "." . $imagen->extension();
+        $imagenFinal = uniqid("win_") . "." . $image->extension();
 
         // Subo el archivo en la carpeta elegida
-        $imagen->storePubliclyAs("public/vinos", $imagenFinal);
+        $image->storePubliclyAs("public/vinos", $imagenFinal);
 
         // Le asigno la imagen a la película que guardamos
         $product->image = $imagenFinal;

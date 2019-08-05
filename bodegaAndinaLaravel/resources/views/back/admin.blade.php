@@ -62,7 +62,11 @@
           <p>{{ $adminProduct->spec }}</p>
           <strong><p class="precio">$ {{ $adminProduct->price }}</p></strong>
           <a type="button" name="button" class="btn alert-secondary">Editar</a>
-          <a type="button" name="button" class="btn btn-warning">Borrar</a>
+          <form action="/admin/{{ $adminProduct->id }}" method="post">
+            @csrf
+            {{ method_field('delete') }}
+            <button type="submit" class="btn btn-warning">BORRAR</button>
+          </form>
         </div>
       @endforeach
 

@@ -80,7 +80,7 @@ class AdminController extends Controller
       $product->save();
 
       // 3. Redireccionamos SIEMPRE a una RUTA
-      return redirect('/guardaprod');
+      return redirect('/admin');
 
 
 
@@ -128,6 +128,10 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $vinoBorrar = Product::find($id);
+
+      $vinoBorrar->delete();
+
+      return redirect('/admin');
     }
 }

@@ -31,6 +31,8 @@ Route::post('/admin', 'AdminController@store');
 // ruta a crear vino
 Route::get('/create', 'AdminController@create');
 
+Route::delete('/admin/{id}', 'AdminController@destroy');
+
 
 // ruta a registración
 Route::get('/registrarme', function () {

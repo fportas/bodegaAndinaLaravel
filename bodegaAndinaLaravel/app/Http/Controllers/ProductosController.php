@@ -39,9 +39,9 @@ class ProductosController extends Controller
      */
     public function create()
     {
-      // $varietals = \App\Varietal::orderBy('id')->get();
-      //
-      // return view('back.create', compact('varietals'));
+      $varietals = \App\Varietal::orderBy('id')->get();
+
+      return view('back.create', compact('varietals'));
     }
 
     /**

@@ -56,12 +56,12 @@
 
       @foreach ($adminProducts as $adminProduct)
         <div class="preguntas-pedido ventanaProducto">
-          <img src="{{ $adminProduct->image }}" class="botella">
+          <img src="/storage/vinos/{{ $adminProduct->image }}" class="botella">
           <h3>{{ $adminProduct->name }}</h3>
           <p>{{ $adminProduct->varietal->name }}</p>
           <p>{{ $adminProduct->spec }}</p>
           <strong><p class="precio">$ {{ $adminProduct->price }}</p></strong>
-          <a type="button" name="button" class="btn alert-secondary">Editar</a>
+          <a href="/admin/{id}/edit" type="button" name="button" class="btn alert-secondary">Ver mas</a>
           <form action="/admin/{{ $adminProduct->id }}" method="post">
             @csrf
             {{ method_field('delete') }}

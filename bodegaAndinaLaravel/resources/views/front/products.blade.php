@@ -46,13 +46,13 @@
         <li><a href="#"> Merlot</a></li>
       </ul>
 
-      <h3>Precios</h3>
+      {{-- <h3>Precios</h3>
 
       <ul>
         <li><a href="#"> Menor precio </a></li>
         <li><a href="#"> Mayor precio </a></li>
         <li><a href="#"> Promociones </a></li>
-      </ul>
+      </ul> --}}
 
       </div>
     <!-- /#sidebar-wrapper -->
@@ -71,7 +71,7 @@
           <p>{{ $product->varietal->name }}</p>
           <p>{{ $product->spec }}</p>
           <strong><p class="precio">$ {{ $product->price }}</p></strong>
-          <button type="button" name="button" class="comprar">Comprar</button>
+          <a href="/show" name="button" class="comprar">Ver más</a>
         </div>
       @endforeach
 

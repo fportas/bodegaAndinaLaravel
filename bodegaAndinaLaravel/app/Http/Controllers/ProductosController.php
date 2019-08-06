@@ -27,8 +27,8 @@ class ProductosController extends Controller
      */
     public function varietal()
     {
-      $varietals = Varietal::all();
-      return view('front/prodmalbec', compact('varietals'));
+      // $varietals = Varietal::all();
+      // return view('front/prodmalbec', compact('varietals'));
 
     }
 
@@ -39,9 +39,7 @@ class ProductosController extends Controller
      */
     public function create()
     {
-      $varietals = \App\Varietal::orderBy('id')->get();
 
-      return view('back.create', compact('varietals'));
     }
 
     /**
@@ -52,46 +50,7 @@ class ProductosController extends Controller
      */
     public function store(Request $request)
     {
-      // $request->validate([
-  		// 	// input_name => rules,
-  		// 	'name' => 'required | max:50',
-  		// 	'spec' => 'required | max:500',
-  		// 	'precie' => 'required | numeric',
-  		// 	'varietal_id' => 'required',
-  		// 	'image' => 'required | image'
-  		// ], [
-  		// 	'required' => 'El campo :attribute es obligatorio',
-  		// 	'numeric' => 'El campo :attribute debe ser numérico',
-  		// 	'spec.max' => 'El :attribute debe contener máximo 500 carácteres',
-  		// 	'name.max' => 'El :attribute debe contener máximo 50 carácteres',
-  		// 	'image' => 'El :attribute puede subir formatos como jpg, jpeg, png'
-  		// ]);
-      //
-      // $product = new Product;
-      //
-      // $product->name = $request->input('name');
-      // $product->spec = $request->input('spec');
-      // $product->precie = $request->input('precie');
-      // $product->varietal_id = $request->input('varietal_id');
-      //
-      // // Obtengo el archivo que viene en el formulario (Objeto de Laravel) que tiene a su vez el archivo de la imagen
-      // $image = $request->file('image'); // El value del atributo name del input file
-      //
-      // if ($image) {
-      //   // Armo un nombre único para este archivo
-      //   $imagenFinal = uniqid("win_") . "." . $imagen->extension();
-      //
-      //   // Subo el archivo en la carpeta elegida
-      //   $image->storePubliclyAs("public/vinos", $imagenFinal);
-      //
-      //   // Le asigno la imagen a la película que guardamos
-      //   $product->image = $imagenFinal;
-      // }
-      //
-      // $product->save();
-      //
-      // // 3. Redireccionamos SIEMPRE a una RUTA
-      // return redirect('/admin');
+
     }
 
     /**
@@ -102,7 +61,9 @@ class ProductosController extends Controller
      */
     public function show($id)
     {
-        //
+      $vino = Product::find($id);
+
+  		return view('show/{id}', compact('vino'));
     }
 
     /**

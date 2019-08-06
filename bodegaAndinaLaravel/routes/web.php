@@ -21,30 +21,39 @@ Route::get('/index', function () {
 // ruta a productos
 Route::get('/productos/', 'ProductosController@index');
 
+Route::get('/show/{id}', 'ProductosController@show');
+
+
 Route::get('/prodmalbec/', 'ProductosController@varietalMalbec');
 // seguir trabajando
 
 // ruta a index de admin
-Route::get('/admin', 'AdminController@index');
-
-Route::post('/admin', 'AdminController@store');
-// ruta a crear vino
+Route::get('/admin', 'AdminController@index')/*->middleware('isAdmin')*/;
+// ruta a formulario de crear vino
 Route::get('/create', 'AdminController@create');
-
+// dispara el guardado en la bd
+Route::post('/admin', 'AdminController@store');
+// seek and destry del producto
 Route::delete('/admin/{id}', 'AdminController@destroy');
+
+Route::get('/show/{id}', 'AdminController@show');
+
+
+
+Route::get('/admin/{id}/edit', 'AdminController@edit');
 
 
 // ruta a registración
-Route::get('/registrarme', function () {
-  return view('front.register');
-});
-// ahora funcionan el register de laravel directamente
-
-// ruta a perfil de usuario
-// Cambiar a post
-Route::get('/perfil-de-usuario', function () {
-  return view('front.perfil-de-usuario');
-});
+// Route::get('/registrarme', function () {
+//   return view('front.register');
+// });
+// // ahora funcionan el register de laravel directamente
+//
+// // ruta a perfil de usuario
+// // Cambiar a post
+// Route::get('/perfil-de-usuario', function () {
+//   return view('front.perfil-de-usuario');
+// });
 
 
 

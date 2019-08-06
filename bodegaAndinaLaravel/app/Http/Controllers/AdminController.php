@@ -93,7 +93,9 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        //
+      $vino = Product::find($id);
+
+      return view('back.show', compact('vino'));
     }
 
     /**
@@ -104,7 +106,12 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        //
+      $vinoToEdit = Product::find($id);
+
+  		// Busco los géneros
+  		$varietals = \App\Varietal::orderBy('name')->get();
+
+  		return view('back.prod.edit', compact('movieToEdit', 'genres'));
     }
 
     /**

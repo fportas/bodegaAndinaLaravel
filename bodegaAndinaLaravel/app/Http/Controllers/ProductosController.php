@@ -61,9 +61,9 @@ class ProductosController extends Controller
      */
     public function show($id)
     {
-      $vino = Product::find($id);
+      $product = Product::find($id);
 
-  		return view('show/{id}', compact('vino'));
+  		return view('front.showprod', compact('product'));
     }
 
     /**

@@ -1,6 +1,6 @@
 @extends('front.template')
 
-@section('pageTitle', 'Productos')
+@section('pageTitle', 'Detalle producto')
 
 @section('link_style')
 
@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="/css/products.css">
 
-  {{-- <meta name="viewport" content="width=device-width, initial-scale=1"> --}}
+
 
 
 @endsection
@@ -36,37 +36,52 @@
     <div class="container-productos">
       {{-- <div class="container-productos"> --}}
       <div class="preguntas-body">
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+
+        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="..." class="d-block w-100" alt="...">
+              <img src="/storage/vinos/{{ $product->image }}" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-              <img src="..." class="d-block w-100" alt="...">
+              <img src="/storage/vinos/mockup-botella.png" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-              <img src="..." class="d-block w-100" alt="...">
+              <img src="/storage/vinos/{{ $product->image }}" class="d-block w-100" alt="...">
             </div>
           </div>
-          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
           </a>
-          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
           </a>
-      </div>
+        </div>
+{{--
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="/storage/vinos/{{ $product->image }}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="/storage/vinos/mockup-botella.png" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="/storage/vinos/{{ $product->image }}" class="d-block w-100" alt="...">
+            </div>
+          </div>
+        </div> --}}
+
 
 
 
           <div class="preguntas-pedido ventanaProducto">
-            <img src="{{ $product->image }}" class="botella">
             <h3>{{ $product->name }}</h3>
             {{-- <p>{{ $product->varietal->name }}</p> --}}
             <p>{{ $product->spec }}</p>
             <strong><p class="precio">$ {{ $product->price }}</p></strong>
-            <a href="/show" name="button" class="comprar">Ver más</a>
+            {{-- <a href="/show" name="button" class="comprar">Ver más</a> --}}
           </div>
 
 
@@ -79,7 +94,12 @@
 @endsection
 
 @section('secondContent')
+  <script type="text/javascript">
 
+  $('.carousel').carousel({
+    interval: 2000
+  })
+  </script>
 
 
 @endsection

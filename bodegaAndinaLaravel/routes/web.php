@@ -21,7 +21,7 @@ Route::get('/index', function () {
 // ruta a productos
 Route::get('/productos/', 'ProductosController@index');
 
-Route::get('/show/{id}', 'ProductosController@show');
+Route::get('/showprod/{id}', 'ProductosController@show');
 
 
 Route::get('/prodmalbec/', 'ProductosController@varietalMalbec');

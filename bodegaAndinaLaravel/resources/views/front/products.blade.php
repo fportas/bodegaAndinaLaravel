@@ -71,7 +71,7 @@
           <p>{{ $product->varietal->name }}</p>
           <p>{{ $product->spec }}</p>
           <strong><p class="precio">$ {{ $product->price }}</p></strong>
-          <a href="/show" name="button" class="comprar">Ver más</a>
+          <a href="/showprod/{{ $product->id }}" name="button" class="comprar">Ver más</a>
         </div>
       @endforeach
 
